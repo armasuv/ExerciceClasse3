@@ -9,7 +9,7 @@ def nombre():
     list = [random1, random2, random3, random4]
     list.sort()
     list.pop(0)
-    list[0] + list[1] + list[2]
+    return list[0] + list[1] + list[2]
 
 class NPC:
     def __init__(self, nom, race, espece, profession):
@@ -44,13 +44,13 @@ class Hero(NPC):
         attaque = random.randint(1.20)
         if attaque == 20:
             dommages_taken = random.randint(1, 8)
-            cible.subir_dommages(dommages_taken)
+            cible.encasser_dommages(dommages_taken)
         elif attaque == 1:
             print("Votre attaque n'as pas marché.")
         else:
             if attaque > cible.classe_armure:
                 dommages_taken = random.randint(1.6)
-                cible.subir_dommages(dommages_taken)
+                cible.encasser_dommages(dommages_taken)
 
     def encasser_dommages(self, dommages):
         self.points_vie -= (dommages - self.classe_armure)
@@ -59,13 +59,13 @@ class Kobold(NPC):
         attaque = random.randint(1, 20)
         if attaque == 20:
             dommages_taken = random.randint(1, 8)
-            cible.subir_dommages(dommages_taken)
+            cible.encasser_dommages(dommages_taken)
         elif attaque == 1:
             print("Votre attaque n'a aucun effet")
         else:
             if attaque > cible.classe_armure:
                 dommages_taken = random.randint(1, 6)
-                cible.subir_dommages(dommages_taken)
+                cible.encasser_dommages(dommages_taken)
 
     def encasser_dommages(self, dommages):
         self.points_vie -= (dommages - self.classe_armure)
